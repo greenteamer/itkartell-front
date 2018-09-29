@@ -22,6 +22,7 @@ class Menu extends React.Component {
 
   render() {
     const { isScrolled } = this.state;
+    const { dark } = this.props;
     return (
       <div className="wrapper">
         <Container>
@@ -40,7 +41,7 @@ class Menu extends React.Component {
             position: fixed;
             top: 0;
             width: 100%;
-            background: ${isScrolled ? 'black' : 'transparent'};
+            background: ${isScrolled || dark ? 'black' : 'transparent'};
             z-index: 100;
           }
           ul {
