@@ -23,6 +23,7 @@ class Menu extends React.Component {
   render() {
     const { isScrolled } = this.state;
     const { dark } = this.props;
+
     return (
       <div className="wrapper">
         <Container>

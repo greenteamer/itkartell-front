@@ -11,10 +11,4 @@ import Menu from './index'
 storiesOf('Menu', module)
   .add('simple', () => (
     <Menu />
-  ))
-  .add('dark', () => (
-    <Menu dark />
-  ))
-  .add('light', () => (
-    <Menu light />
   ));
