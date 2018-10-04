@@ -4,10 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import Menu from './index'
+import Card from './index'
 
 
-storiesOf('Menu', module)
+storiesOf('Card', module)
   .add('simple', () => (
-    <Menu />
+    <Card title="title" text="text" />
   ));

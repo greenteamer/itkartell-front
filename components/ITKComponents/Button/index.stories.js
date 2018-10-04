@@ -4,10 +4,10 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import Menu from './index'
+import Button from './index'
 
 
-storiesOf('Menu', module)
+storiesOf('Button', module)
   .add('simple', () => (
-    <Menu />
+    <Button variant="contained" color="primary" >Hello button</Button>
   ));

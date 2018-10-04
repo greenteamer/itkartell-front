@@ -11,11 +11,18 @@
   },
   "dependencies": {
     "@material-ui/core": "latest",
+    "apollo-boost": "^0.1.16",
+    "apollo-link-context": "^1.0.9",
+    "apollo-link-http": "^1.5.5",
+    "graphql": "^14.0.2",
+    "graphql-tag": "^2.10.0",
     "isomorphic-unfetch": "^3.0.0",
+    "js-cookie": "^2.2.0",
     "jss": "latest",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
+    "react-apollo": "^2.2.4",
     "react-dom": "latest",
     "react-jss": "latest"
   },

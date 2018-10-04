@@ -13,10 +13,12 @@ import { withStyles } from '@material-ui/core/styles';
 import Link from 'next/link';
 import { withRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
+import Cookies from 'js-cookie';
 
 import { withLayout } from '../../components/MainLayout'
-import Header from './header'
-import StartToEnd from './startToEnd'
+import Header from './Header'
+import StartToEnd from './StartToEnd'
+import PageList from './PageList'
 
 
 const styles = theme => ({
@@ -44,6 +46,30 @@ class Index extends React.Component {
     });
   };
 
+  handleTest = async () => {
+    console.log('>>> cookies: ', Cookies.get('csrftoken'))
+    const res = await fetch('http://localhost:8000/graphql/', {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        'X-CSRFToken': Cookies.get('csrftoken'),
+        "Accept": "application/json",
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        query: `{allPages{
+          id
+          name
+          slug
+          text
+        }`
+      })
+    })
+    // const data = await res.json()
+    // const res = "test"
+    console.log(`Show data fetched. Count: `, res)
+  }
+
   render() {
     const { classes } = this.props;
     const { open } = this.state;
@@ -52,32 +78,9 @@ class Index extends React.Component {
       <div className={classes.root}>
         <Header />
         <StartToEnd />
-
-        <Dialog open={open} onClose={this.handleClose}>
-          <DialogTitle>Super Secret Password</DialogTitle>
-          <DialogContent>
-            <DialogContentText>1-2-3-4-5</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button color="primary" onClick={this.handleClose}>
-              OK
-            </Button>
-          </DialogActions>
-        </Dialog>
-
-        <Typography variant="display1" gutterBottom>
-          Material-UI
-        </Typography>
-        <Typography variant="subheading" gutterBottom>
-          example project
-        </Typography>
-        <Typography gutterBottom>
-          <Link href="/about">
-            <a>Go to the about page</a>
-          </Link>
-        </Typography>
-        <Button variant="contained" color="secondary" onClick={this.handleClick}>
-          Super Secret Password
+        <PageList />
+        <Button color="primary" onClick={this.handleTest}>
+          OK
         </Button>
         <style jsx>{`
           .headerContainer {
@@ -93,13 +96,51 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
+// Index.getInitialProps = async function() {
+//   const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+//   const data = await res.json()
+//   console.log(`Show data fetched. Count: ${data.length}`)
+//   return {
+//     shows: data,
+//   }
+// }
+
 Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-  const data = await res.json()
-  console.log(`Show data fetched. Count: ${data.length}`)
+  // const res = await fetch('http://localhost:8000/graphql/', {
+  //   method: "POST",
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     query: `{allPages{
+  //       id
+  //       name
+  //       slug
+  //       text
+  //     }`
+  //   })
+  // })
+  // // const data = await res.json()
+  // console.log(`Show data fetched. Count: `, res)
   return {
-    shows: data,
+    shows: [],
   }
+}
+
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
 }
 
 export default withRouter(withLayout(withStyles(styles)(Index)))

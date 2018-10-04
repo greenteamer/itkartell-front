@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from '@material-ui/core/Button';
 
 
 const Card = ({ icon, title, text }) => { 
@@ -7,6 +8,9 @@ const Card = ({ icon, title, text }) => {
       <div>{icon}</div>
       <div>{title}</div>
       <div>{text}</div>
+      <Button variant="contained" color="primary">
+        Hello World
+      </Button>
       <style jsx>{`
         .container {
           background: white;
@@ -17,5 +21,5 @@ const Card = ({ icon, title, text }) => {
   )
 }
 
-export default Typed
+export default Card
 
