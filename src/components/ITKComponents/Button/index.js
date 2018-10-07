@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = { 
   root: {
-    border: "1px solid #333"
+    // border: "1px solid #333"
+    // borderRadius: 30,
   },
 }
 

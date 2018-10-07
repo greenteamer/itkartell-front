@@ -47,7 +47,7 @@ class Index extends React.Component {
         <Header />
         <StartToEnd />
         <PageList />
-        <Button color="primary" onClick={this.handleClick}>
+        <Button color="primary" variant="contained" onClick={this.handleClick}>
           OK
         </Button>
         <style jsx>{`
@@ -65,11 +65,11 @@ Index.propTypes = {
 };
 
 Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-  const data = await res.json()
-  console.log(`Show data fetched. Count: ${data.length}`)
+  // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+  // const data = await res.json()
+  // console.log(`Show data fetched. Count: ${data.length}`)
   return {
-    shows: data,
+    shows: [],
   }
 }
 
