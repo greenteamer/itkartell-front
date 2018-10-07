@@ -5,7 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import JssProvider from 'react-jss/lib/JssProvider';
 import { ApolloProvider } from 'react-apollo';
 
-import getPageContext from '../src/getPageContext';
+import getPageContext from '../lib/getPageContext';
 import withApolloClient from '../lib/withApolloClient';
 
 

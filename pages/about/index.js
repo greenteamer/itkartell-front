@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Link from 'next/link';
 
-import Menu from '../../components/Menu'
+import Menu from '../../src/components/Menu'
 
 
 const styles = theme => ({

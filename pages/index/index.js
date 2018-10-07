@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { withRouter } from 'next/router'
 import fetch from 'isomorphic-unfetch'
 
-import { withLayout } from '../../components/MainLayout'
+import { withLayout } from '../../src/components/MainLayout'
 import Header from './Header'
 import StartToEnd from './StartToEnd'
 import PageList from './PageList'

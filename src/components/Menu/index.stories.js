@@ -9,5 +9,11 @@ import Menu from './index'
 
 storiesOf('Menu', module)
   .add('simple', () => (
-    <Menu />
+    <div style={{
+      background: '#333',
+      height: 100,
+      margin: -8,
+    }}>
+      <Menu />
+    </div>
   ));

@@ -53,6 +53,9 @@ class Menu extends React.Component {
             padding: 0;
           }
           li {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
             list-style: none;
             padding: 16px;
             margin: 0 4px;
@@ -68,27 +71,27 @@ class Menu extends React.Component {
 
 const data = [
   {
-    name: 'Home',
+    name: 'Главная',
     url: '/',
   },
   {
-    name: 'About',
+    name: 'О нас',
     url: '/about',
   },
   {
-    name: 'Portfolio',
+    name: 'Портфолио',
     url: '/portfolio',
   },
   {
-    name: 'Pages',
+    name: 'Страницы',
     url: '/pages',
   },
   {
-    name: 'Blog',
+    name: 'Блог',
     url: '/blog',
   },
   {
-    name: 'Contacts',
+    name: 'Контакты',
     url: '/contact',
   },
 ]

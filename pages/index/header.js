@@ -2,9 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 import Grid from '@material-ui/core/Grid'
 
-import Container from '../../components/Container'
-import Menu from '../../components/Menu'
-import Typed from '../../components/Typed'
+import Container from '../../src/components/Container'
+import Menu from '../../src/components/Menu'
+import Typed from '../../src/components/Typed'
 
 
 class Header extends React.Component { 

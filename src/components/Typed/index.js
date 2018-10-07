@@ -70,6 +70,7 @@ class Typed extends React.Component {
         <div className="typed">ItKartell обеспечивает<br />- {typedText}</div>
         <style jsx>{`
           .typed {
+            font-family: 'Roboto Condenced', sans-serif;
             font-size: ${fontSize || 12}px;
             color: ${fontColor || 'white'};
           }
