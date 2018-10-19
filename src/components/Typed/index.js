@@ -16,11 +16,22 @@ class Typed extends React.Component {
     this.state = {
       typedText: '',
       direction: TO_END,
+      hidden: false,
     }
   }
 
   componentDidMount() {
     this.runTypeWriter();
+    this.startBlinkCursor();
+  }
+
+  startBlinkCursor = () => {
+    this.setState(prevState => ({
+      ...prevState,
+      hidden: !prevState.hidden,
+    }), () => {
+      setTimeout(this.startBlinkCursor, 500);
+    })
   }
 
   randomizer = () => {
@@ -79,16 +90,24 @@ class Typed extends React.Component {
   }
 
   render() {
-    const { typedText } = this.state;
+    const { typedText, hidden } = this.state;
     const { fontSize, fontColor } = this.props;
     return (
       <div>
-        <div className="typed">ItKartell обеспечивает<br />- {typedText}</div>
+        <div className="typed">ItKartell обеспечивает<br />- {typedText} <span className={`cursor ${hidden && 'hidden'}`}>|</span></div>
         <style jsx>{`
           .typed {
             font-family: "Muller-ExtraBold";
             font-size: ${fontSize || 12}px;
             color: ${fontColor || 'white'};
+          }
+          .cursor {
+            opacity: 1;
+            font-weight: 600;
+            margin-left: -7px;
+          }
+          .hidden {
+            opacity: 0;
           }
         `}</style>
       </div>
