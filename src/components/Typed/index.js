@@ -6,7 +6,7 @@ const TO_START = 'TO_START'
 
 const textArr = [
   'Web разработку',
-  // 'Разработку мобильных приложений',
+  'Разработку мобильных приложений',
 ];
 
 class Typed extends React.Component { 
@@ -23,43 +23,59 @@ class Typed extends React.Component {
     this.runTypeWriter();
   }
 
+  randomizer = () => {
+    return 250 - Math.floor(Math.random() * 200);
+  }
+
+  typeWriter = (textArr, index, i) => {
+    const txt = textArr[index];
+
+    if (i < txt.length) {
+      this.setState(prevState => ({
+        ...prevState,
+        typedText: prevState.typedText + txt.charAt(i),
+      }), () => {
+        i++;
+        if (i === txt.length) {
+          setTimeout(() => this.typeRemover(textArr, index, i), 2000);
+        } else {
+          setTimeout(() => this.typeWriter(textArr, index, i), this.randomizer());
+        }
+      });
+    }
+  }
+
+  typeRemover = (textArr, index, i) => {
+    const removeChr = prevState => ({
+      ...prevState,
+      typedText: prevState.typedText.substring(0, i),
+    })
+    if (i >= 0) {
+      this.setState(removeChr, () => {
+        i--;
+        // setTimeout(() => this.typeRemover(i), 20);
+        if (i === 0) {
+          this.setState(removeChr, () => {
+            // typeWriter();
+            if (textArr[index + 1]) {
+              setTimeout(() => this.typeWriter(textArr, index + 1, i), this.randomizer());
+            } else {
+              setTimeout(() => this.typeWriter(textArr, 0, i), this.randomizer());
+            }
+          })
+        } else {
+          // setTimeout(typeRemover, 100);
+          setTimeout(() => this.typeRemover(textArr, index, i), 20);
+        }
+      });
+    }
+  }
+
   runTypeWriter = () => {
     const { typedText, direction } = this.state;
-    // console.log('>>> textArr item: ', { txt });
-
-    const txt = textArr[0];
     let i = 0     
-
-    const typeWriter = () => {
-      if (i < txt.length) {
-        this.setState(prevState => ({
-          ...prevState,
-          typedText: prevState.typedText + txt.charAt(i),
-        }), () => {
-          i++;
-          if (i === txt.length) {
-            typeRemover();
-          } else {
-            setTimeout(typeWriter, 300);
-          }
-        });
-      }
-    }
-
-    const typeRemover = () => {
-      if (i >= 0) {
-        this.setState(prevState => ({
-          ...prevState,
-          typedText: prevState.typedText.substring(0, i),
-        }), () => {
-          i--;
-          setTimeout(typeRemover, 300);
-        });
-      }
-    }
-
     // run loop script
-    typeWriter()
+    this.typeWriter(textArr, 0, i)
   }
 
   render() {
@@ -70,7 +86,7 @@ class Typed extends React.Component {
         <div className="typed">ItKartell обеспечивает<br />- {typedText}</div>
         <style jsx>{`
           .typed {
-            font-family: 'Roboto Condenced', sans-serif;
+            font-family: "Muller-ExtraBold";
             font-size: ${fontSize || 12}px;
             color: ${fontColor || 'white'};
           }

@@ -31,6 +31,7 @@ class Menu extends React.Component {
           <Grid container spacing={0}>
             <Grid item xs={4}>
               <div className="logoWrapper">
+                <img width={35} src="/static/logo2.png" />
                 <div className="logo">IT Kartell</div>
               </div>
             </Grid>

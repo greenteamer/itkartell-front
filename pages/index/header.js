@@ -23,7 +23,7 @@ class Header extends React.Component {
                   <Typed fontSize={35} />
                 </Grid>
                 <Grid item xs={12}>
-                  <p className="secondary">We design and develop mobile apps that delight your users and grow your business. Enterprise-grade development combined with outstanding design.</p>
+                  <p className="secondary">IT Kartell - это современная разработка доступная для любого бизнеса. Мы разрабатываем полезные и современные приложения для роста Вашего дела. Ресурсы созданные с IT Kartell будут лучшим ответом на запросы Ваших клиентов.</p>
                 </Grid>
               </Grid>
               <Grid item xs={6}>
@@ -42,7 +42,7 @@ class Header extends React.Component {
             z-index: 6;
           }
           .secondary {
-            font-family: "Akrobat";
+            font-family: "Akrobat-SemiBold";
             color: white;
             font-size: 16px;
             line-height: 28px;
