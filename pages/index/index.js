@@ -10,6 +10,7 @@ import fetch from 'isomorphic-unfetch'
 import { withLayout } from '../../src/components/MainLayout'
 import Header from './Header'
 import StartToEnd from './StartToEnd'
+import RecentWorks from './RecentWorks'
 import PageList from './PageList'
 
 
@@ -46,6 +47,7 @@ class Index extends React.Component {
       <div className={classes.root}>
         <Header />
         <StartToEnd />
+        <RecentWorks />
         <PageList />
         <Button color="primary" variant="contained" onClick={this.handleClick}>
           OK
@@ -64,13 +66,13 @@ Index.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-Index.getInitialProps = async function() {
-  // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
-  // const data = await res.json()
-  // console.log(`Show data fetched. Count: ${data.length}`)
-  return {
-    shows: [],
-  }
-}
+// Index.getInitialProps = async function() {
+//   // const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
+//   // const data = await res.json()
+//   // console.log(`Show data fetched. Count: ${data.length}`)
+//   return {
+//     shows: [],
+//   }
+// }
 
 export default withRouter(withLayout(withStyles(styles)(Index)))

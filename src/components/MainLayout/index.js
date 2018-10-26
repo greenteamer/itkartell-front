@@ -85,6 +85,19 @@ const Layout = ({ children }) => (
         font-weight: normal;
         font-style: normal;
       }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: "Muller-ExtraBold";
+        color: #525252;
+      }
+      h1 {
+        font-size: 36px;
+      }
+      h2 {
+        font-size: 32px;
+      }
+      h3 {
+        font-size: 26px;
+      }
       .layoutWrapper {
         padding-top: 50px;
         background: white;

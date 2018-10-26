@@ -9,6 +9,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import Container from '../../src/components/Container'
+import TitleBlock from '../../src/components/TitleBlock'
 import Menu from '../../src/components/Menu'
 import Typed from '../../src/components/Typed'
 
@@ -31,49 +32,42 @@ const styles = {
   },
 };
 
-const MyCard = withStyles(styles)(({ classes }) => { 
-  const bull = <span className={classes.bullet}>•</span>;
-  return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary">
-          Word of the Day
-        </Typography>
-        <Typography variant="headline" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
-  )
-})
+const MyCard = withStyles(styles)(({ classes, title, text }) => (
+  <Card className={classes.card}>
+    <CardContent>
+      <h4>{title}</h4>
+      <p className="text">{text}</p>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Подробнее</Button>
+    </CardActions>
+    <style jsx>{`
+      .text {
+        font-family: "Akrobat-SemiBold"; 
+      }
+      `}</style>
+  </Card>
+))
 
 class StartToEnd extends React.Component { 
-
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
-
     return (
       <div className="startToEndwrapper">
         <Container>
           <div className="headerContent">
             <Grid container spacing={16}>
               <Grid item xs={5}>
+                <div className="steTextWrapper">
+                  <div className="steText">
+                    <TitleBlock preText="о нас" text="Разработка полного цикла" tag="h3" />
+                    <div>Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети.</div>
+                    <br></br>
+                    <div>Мы понимаем что в современном мире мы не можем предлагать продукт который не отвечает текущим требованиям рынка. Зачастую малый бизнес сталкивается с тем что для его эффективной работы нужен актуальный ресурс - современное web приложение, а не просто страничка в интернете, что часто оказывается слишком затратно. Положение может сильно усложнится необходимостью создания мобильного приложения, так как затраты могут сильно выйти за рамки бюджета. Команда IT Kartell нашла для Вас экономное и при этом не уступающее по своим функциональным возможностям решение, мы экономим на общем для разного вида работ стеке и используем современные и эффективные разработки.</div>
+                  </div>
+                  <Button size="small" variant="contained" color="primary">Подробнее</Button>
+                </div>
               </Grid>
               <Grid item xs={7}>
                 <Grid container spacing={32}>
@@ -81,21 +75,33 @@ class StartToEnd extends React.Component {
                     <Grid container spacing={32}>
                       <Grid item xs={12}>
                         <div className="firstCard">
-                          <MyCard />
+                          <MyCard
+                            title="Дизайн"
+                            text="Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети."
+                          />
                         </div>
                       </Grid>
                       <Grid item xs={12}>
-                        <MyCard />
+                        <MyCard
+                          title="Разработка"
+                          text="Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети."
+                        />
                       </Grid>
                     </Grid>
                   </Grid>
                   <Grid item xs={6}>
                     <Grid container spacing={32}>
                       <Grid item xs={12}>
-                        <MyCard />
+                        <MyCard
+                          title="Продвижение"
+                          text="Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети."
+                        />
                       </Grid>
                       <Grid item xs={12}>
-                        <MyCard />
+                        <MyCard
+                          title="Аналитика"
+                          text="Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети."
+                        />
                       </Grid>
                     </Grid>
                   </Grid>
@@ -105,9 +111,12 @@ class StartToEnd extends React.Component {
           </div>
         </Container>
         <style jsx>{`
+          .title {
+            margin-top: 0px;
+          }
           .startToEndwrapper {
             position: relative;
-            margin-top: -50px;
+            margin-top: 50px;
           }
           .headerContent {
             position: relative;
@@ -120,6 +129,17 @@ class StartToEnd extends React.Component {
           }
           .firstCard {
             margin-top: 50px;
+          }
+          .steTextWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            height: 100%;
+          }
+          .steText {
+            font-family: "Akrobat-SemiBold";
+            margin: 150px 0 20px;
           }
         `}</style>
       </div>
