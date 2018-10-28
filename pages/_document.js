@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Document, { Head, Main, NextScript } from 'next/document';
 import flush from 'styled-jsx/server';
 
+
 class MyDocument extends Document {
   render() {
     const { pageContext } = this.props;
@@ -24,7 +25,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
           /> */}
           {/* <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet"></link> */}
-          <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,500,700,900&amp;subset=cyrillic" rel="stylesheet"></link>
+          {/* <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:400,500,700,900&amp;subset=cyrillic" rel="stylesheet"></link> */}
         </Head>
         <body>
           <Main />

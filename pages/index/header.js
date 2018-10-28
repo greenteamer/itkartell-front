@@ -23,11 +23,11 @@ class Header extends React.Component {
                   <Typed fontSize={35} />
                 </Grid>
                 <Grid item xs={12}>
-                  <p className="secondary">We design and develop mobile apps that delight your users and grow your business. Enterprise-grade development combined with outstanding design.</p>
+                  <p className="secondary">IT Kartell - это современная разработка доступная для любого бизнеса. Мы разрабатываем полезные и современные приложения для роста Вашего дела. Ресурсы созданные с IT Kartell будут лучшим ответом на запросы Ваших клиентов.</p>
                 </Grid>
               </Grid>
               <Grid item xs={6}>
-                <img src="/static/responsive.png" />
+                <img src="/static/header-image.png" className="headerImage" />
               </Grid>
             </Grid>
           </div>
@@ -38,10 +38,11 @@ class Header extends React.Component {
           }
           .headerContent {
             position: relative;
-            padding: 250px 0;
+            padding: 150px 0 250px;
             z-index: 6;
           }
           .secondary {
+            font-family: "Akrobat-SemiBold";
             color: white;
             font-size: 16px;
             line-height: 28px;
@@ -73,6 +74,10 @@ class Header extends React.Component {
             opacity: 0.85;
             background-image: linear-gradient(45deg, #01aef0 0%, #c85eff 91%);
             z-index: 3;
+          }
+          .headerImage {
+            position: absolute;
+            width: 600px;
           }
         `}</style>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Grid from '@material-ui/core/Grid'
 
 import Container from '../Container'
 
@@ -27,17 +28,37 @@ class Menu extends React.Component {
     return (
       <div className="wrapper">
         <Container>
-          <ul>
-            {data.map(item => (
-              <Link href={item.url} key={item.name}>
-                <li>
-                  {item.name}
-                </li>
-              </Link>
-            ))}
-          </ul>
+          <Grid container spacing={0}>
+            <Grid item xs={4}>
+              <div className="logoWrapper">
+                <img width={35} src="/static/logo2.png" />
+                <div className="logo">IT Kartell</div>
+              </div>
+            </Grid>
+            <Grid item xs={8}>
+              <ul>
+                {data.map(item => (
+                  <Link href={item.url} key={item.name}>
+                    <li>
+                      {item.name}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </Grid>
+          </Grid>
         </Container>
         <style jsx>{`
+          .logoWrapper {
+            display: flex;
+            align-items: center;
+            height: 100%;
+          }
+          .logo {
+            font-family: "Muller-ExtraBold";
+            color: white;
+            font-size: 22px;
+          }
           .wrapper {
             position: fixed;
             top: 0;
@@ -53,9 +74,9 @@ class Menu extends React.Component {
             padding: 0;
           }
           li {
-            font-family: 'Roboto', sans-serif;
+            font-family: "Muller-ExtraBold";
             font-weight: 500;
-            font-size: 14px;
+            font-size: 16px;
             list-style: none;
             padding: 16px;
             margin: 0 4px;

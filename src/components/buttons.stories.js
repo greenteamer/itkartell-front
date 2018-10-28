@@ -4,51 +4,50 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 import green from '@material-ui/core/colors/green';
-import { withStyles, MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { Button, Icon, IconButton,  } from '@material-ui/core'
+import DeleteIcon from '@material-ui/icons/Delete';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
-import Button from './index'
+import theme from '../../lib/muiTheme';
 
-const theme = createMuiTheme({
-  palette: {
-    primary: green,
-  },
-});
 
-storiesOf('Button', module)
-  .add('simple', () => (
+storiesOf('MaterialUI', module)
+  .add('Buttons', () => (
     <MuiThemeProvider theme={theme}>
       <div className="container">
         <div className="buttons">
-          <Button size="small" className="button">
-            Small
+          <Button size="small" variant="raised">
+            Маленькая
           </Button>
           <Button size="medium">
-            Medium
+            Средняя
           </Button>
           <Button size="large">
-            Large
+            Большая
           </Button>
         </div>
         <div className="buttons">
           <Button variant="outlined" size="small" color="primary">
-            Small
+            Маленькая
           </Button>
           <Button variant="outlined" size="medium" color="primary">
-            Medium
+            Средняя
           </Button>
           <Button variant="outlined" size="large" color="primary">
-            Large
+            Большая
           </Button>
         </div>
         <div className="buttons">
-          <Button variant="contained" size="small" color="primary">
-            Small
+          <Button variant="contained" size="small" color="primary" disableRipple>
+            Маленькая
           </Button>
           <Button variant="contained" size="medium" color="primary">
-            Medium
+            Средняя
           </Button>
           <Button variant="contained" size="large" color="primary">
-            Large
+            Большая
           </Button>
         </div>
         <div className="buttons">
