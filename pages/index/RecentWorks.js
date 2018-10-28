@@ -103,16 +103,25 @@ export default function RecentWorks () {
             </Container>
             <style jsx>{`
               .recentWorks {
-                margin-top: 100px;
+                margin-top: 150px;
                 padding: 50px 0;
-                background-image: linear-gradient(45deg,rgba(1, 174, 240, 0.2) 0%,rgb(255, 255, 255) 91%);
               }
               .centered {
                 display: flex;
                 justify-content: center;
               }
               .sliderContainer {
+                position: relative;
                 padding: 0 50px;
+              }
+              .sliderContainer:before {
+                position: absolute;
+                left: -60px;
+                top: -120px;
+                height: 490px;
+                width: 290px;
+                content: "";
+                background-image: url(static/dots.png);
               }
               .sliderItem {
                 height: 280px;

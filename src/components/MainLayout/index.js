@@ -85,18 +85,45 @@ const Layout = ({ children }) => (
         font-weight: normal;
         font-style: normal;
       }
+      @font-face {
+        font-family: "NotoSans-Regular";
+        src: url("/static/fonts/nato/NotoSans-Regular.ttf");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "NotoSans-Italic";
+        src: url("/static/fonts/nato/NotoSans-Italic.ttf");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "NotoSans-Bold";
+        src: url("/static/fonts/nato/NotoSans-Bold.ttf");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "NotoSans-BoldItalic";
+        src: url("/static/fonts/nato/NotoSans-BoldItalic.ttf");
+        font-weight: normal;
+        font-style: normal;
+      }
       h1, h2, h3, h4, h5, h6 {
-        font-family: "Muller-ExtraBold";
-        color: #525252;
+        font-family: "NotoSans-Bold";
+        color: #3c4858;
       }
       h1 {
-        font-size: 36px;
+        font-size: 40px;
       }
       h2 {
-        font-size: 32px;
+        font-size: 35px;
       }
       h3 {
-        font-size: 26px;
+        font-size: 28px;
+      }
+      div, p, span, b {
+        font-family: "NotoSans-Regular";
       }
       .layoutWrapper {
         padding-top: 50px;

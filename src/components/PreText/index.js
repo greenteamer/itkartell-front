@@ -16,13 +16,16 @@ export default ({ lineType, preText }) => {
           }
           .line {
             width: 100%;
-            height: 2px;
+            height: 4px;
             background: #f44438;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 2px;
+            margin-top: 4px;
           }
           .preText {
             color: #999999;
-            padding: 0 8px;
             font-family: "Akrobat-SemiBold";
+            font-size: 20px;
           }
         `}</style>
       </div>
@@ -40,13 +43,16 @@ export default ({ lineType, preText }) => {
         }
         .line {
           width: 50px;
-          height: 2px;
+          height: 4px;
           background: #f44438;
           margin-right: 8px;
+          border-bottom-right-radius: 2px;
+          border-top-right-radius: 2px;
         }
         .preText {
           color: #999999;
           font-family: "Akrobat-SemiBold";
+          font-size: 20px;
         }
       `}</style>
     </div>

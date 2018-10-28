@@ -6,12 +6,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 
 import Container from '../../src/components/Container'
 import TitleBlock from '../../src/components/TitleBlock'
-import Menu from '../../src/components/Menu'
-import Typed from '../../src/components/Typed'
 
 
 const styles = {
@@ -43,7 +40,9 @@ const MyCard = withStyles(styles)(({ classes, title, text }) => (
     </CardActions>
     <style jsx>{`
       .text {
-        font-family: "Akrobat-SemiBold"; 
+        font-family: "NotoSans-Regular";
+        font-size: 13px; 
+        color: #666;
       }
       `}</style>
   </Card>
@@ -57,11 +56,11 @@ class StartToEnd extends React.Component {
       <div className="startToEndwrapper">
         <Container>
           <div className="headerContent">
-            <Grid container spacing={16}>
+            <Grid container spacing={32}>
               <Grid item xs={5}>
                 <div className="steTextWrapper">
                   <div className="steText">
-                    <TitleBlock preText="о нас" text="Разработка полного цикла" tag="h3" />
+                    <TitleBlock preText="о нас" text={<span style={{ fontFamily: "NotoSans-Bold" }}>Разработка<br/>полного цикла</span>} tag="h2" />
                     <div>Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети.</div>
                     <br></br>
                     <div>Мы понимаем что в современном мире мы не можем предлагать продукт который не отвечает текущим требованиям рынка. Зачастую малый бизнес сталкивается с тем что для его эффективной работы нужен актуальный ресурс - современное web приложение, а не просто страничка в интернете, что часто оказывается слишком затратно. Положение может сильно усложнится необходимостью создания мобильного приложения, так как затраты могут сильно выйти за рамки бюджета. Команда IT Kartell нашла для Вас экономное и при этом не уступающее по своим функциональным возможностям решение, мы экономим на общем для разного вида работ стеке и используем современные и эффективные разработки.</div>
@@ -138,8 +137,9 @@ class StartToEnd extends React.Component {
             height: 100%;
           }
           .steText {
-            font-family: "Akrobat-SemiBold";
-            margin: 150px 0 20px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
           }
         `}</style>
       </div>
