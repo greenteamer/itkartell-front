@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames';
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -12,6 +13,28 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '../../src/components/Container'
 import TitleBlock from '../../src/components/TitleBlock'
 
+
+const buttonStyles = {
+  button: {
+    background: 'transparent',
+    borderColor: 'white',
+    color: 'white',
+    '&:hover': {
+      borderColor: 'white',
+      background: 'transparent',
+    }
+  },
+}
+
+const MyButton = withStyles(buttonStyles)((props) => {
+  const { classes, children, className, ...other } = props;
+
+  return (
+    <Button className={classNames(classes.button, className)} {...other}>
+      {children || 'class names'}
+    </Button>
+  );
+})
 
 const styles = {
   card: {
@@ -55,6 +78,9 @@ const WithIconBlock = ({ text, icon, title }) => (<div className="wrapper">
     <p>{text}</p>
   </div>
   <style jsx>{`
+    h4 {
+      color: white;
+    }
     .wrapper {
       display: flex;
       flex-direction: row;
@@ -64,7 +90,7 @@ const WithIconBlock = ({ text, icon, title }) => (<div className="wrapper">
     .icon {
       width: 80px;
       height: 80px;
-      background: #5366cf;
+      background: white;
       border-radius: 40px;
       display: flex;
       justify-content: center;
@@ -94,8 +120,8 @@ class Seo extends React.Component {
                 <div className="steTextWrapper">
                   <div className="steText">
                     <TitleBlock
-                      preText="seo"
-                      text={<span style={{ fontFamily: "NotoSans-Bold" }}>
+                      preText={<span style={{ color: "#fff" }}>seo</span>}
+                      text={<span style={{ fontFamily: "NotoSans-Bold", color: "#fff" }}>
                         Вы можете спросить<br/>что такое SEO и зачем вообще оно нужно</span>
                       }
                       tag="h2"
@@ -103,23 +129,23 @@ class Seo extends React.Component {
                     <div>Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети.</div>
                     <br></br>
                     <WithIconBlock
-                      icon={<GroupIcon style={{color: 'white', fontSize: '45px'}} />}
+                      icon={<GroupIcon style={{color: '#5366cf', fontSize: '45px'}} />}
                       title="Social Media Marketing"
                       text="Business applications through revolutionary catalysts for chang the Seamlessly underwhelm dures"
                     />
                     <WithIconBlock
-                      icon={<MailIcon style={{color: 'white', fontSize: '45px'}} />}
+                      icon={<MailIcon style={{color: '#5366cf', fontSize: '45px'}} />}
                       title="Email Marketing"
                       text="Business applications through revolutionary catalysts for chang the Seamlessly underwhelm dures"
                     />
                     <WithIconBlock
-                      icon={<SearchIcon style={{color: 'white', fontSize: '45px'}} />}
+                      icon={<SearchIcon style={{color: '#5366cf', fontSize: '45px'}} />}
                       title="SEO Optimization"
                       text="Business applications through revolutionary catalysts for chang the Seamlessly underwhelm dures"
                     />
                   </div>
                   <div className="moreContainer">
-                    <Button size="small" variant="contained" color="primary">Подробнее</Button>
+                    <MyButton size="medium" variant="outlined" color="primary">Подробнее</MyButton>
                   </div>
                 </div>
               </Grid>
@@ -141,6 +167,8 @@ class Seo extends React.Component {
           .seoWrapper {
             position: relative;
             margin-top: 150px;
+            padding: 100px 0 70px;
+            background-color: #575fd4;
           }
           .headerContent {
             position: relative;
@@ -163,7 +191,7 @@ class Seo extends React.Component {
           }
           .steText {
             font-size: 13px;
-            color: #666;
+            color: #fff;
             margin-bottom: 20px;
           }
           .moreContainer {

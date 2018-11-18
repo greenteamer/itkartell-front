@@ -11,8 +11,9 @@ import { withLayout } from '../../src/components/MainLayout'
 import Header from './Header'
 import StartToEnd from './StartToEnd'
 import RecentWorks from './RecentWorks'
-import PageList from './PageList'
+import Features from './Features'
 import Seo from './Seo'
+import Contacts from './Contacts'
 
 
 const styles = theme => ({
@@ -47,10 +48,8 @@ class Index extends React.Component {
         <StartToEnd />
         <RecentWorks />
         <Seo />
-        <PageList />
-        <Button color="primary" variant="contained" onClick={this.handleClick}>
-          OK
-        </Button>
+        <Features />
+        <Contacts />
         <style jsx>{`
           .headerContainer {
             background: #333;

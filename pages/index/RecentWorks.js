@@ -79,7 +79,7 @@ export default function RecentWorks () {
                   {/* <div className="centered">
                     <h3>Наши работы</h3>
                   </div> */}
-                  <TitleBlock preText="portfolio" text="Наши работы" tag="h3" centered />
+                  <TitleBlock preText={<span>portfolio</span>} text="Наши работы" tag="h3" centered />
                   <div className="sliderContainer">
                     <Slider {...settings}>
                       {data.projects && indexedMap((item, index) => (
@@ -103,7 +103,7 @@ export default function RecentWorks () {
             </Container>
             <style jsx>{`
               .recentWorks {
-                margin-top: 150px;
+                margin-top: 70px;
                 padding: 50px 0;
               }
               .centered {
