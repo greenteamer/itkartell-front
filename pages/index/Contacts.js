@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -48,7 +49,7 @@ const MyCard = withStyles(styles)(({ classes, title, text }) => (
   </Card>
 ))
 
-class StartToEnd extends React.Component { 
+class Contacts extends React.Component { 
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
@@ -60,10 +61,38 @@ class StartToEnd extends React.Component {
               <Grid item xs={5}>
                 <div className="steTextWrapper">
                   <div className="steText">
-                    <TitleBlock preText={<span>about</span>} text={<span style={{ fontFamily: "NotoSans-Bold" }}>Разработка<br/>полного цикла</span>} tag="h2" />
-                    <div>Наша команда обладает всеми навыками для работы над вашим проектом от разработки прототипа до полноценного старта и продвижения в сети.</div>
-                    <br></br>
-                    <div>Мы понимаем что в современном мире мы не можем предлагать продукт который не отвечает текущим требованиям рынка. Зачастую малый бизнес сталкивается с тем что для его эффективной работы нужен актуальный ресурс - современное web приложение, а не просто страничка в интернете, что часто оказывается слишком затратно. Положение может сильно усложнится необходимостью создания мобильного приложения, так как затраты могут сильно выйти за рамки бюджета. Команда IT Kartell нашла для Вас экономное и при этом не уступающее по своим функциональным возможностям решение, мы экономим на общем для разного вида работ стеке и используем современные и эффективные разработки.</div>
+                    <TitleBlock
+                      preText={<span>contact us</span>}
+                      text={<span style={{ fontFamily: "NotoSans-Bold" }}>Мы знаем как сделать<br/> Ваш бизнес еще эффективнее</span>}
+                      tag="h3"
+                    />
+                    <TextField
+                      id="email-input"
+                      label="Email"
+                      type="email"
+                      name="email"
+                      autoComplete="email"
+                      margin="normal"
+                      fullWidth
+                    />
+                    <TextField
+                      id="name-input"
+                      label="Ваше имя"
+                      type="text"
+                      name="name"
+                      margin="normal"
+                      fullWidth
+                    />
+                    <TextField
+                      id="name-input"
+                      label="Сообщение"
+                      type="text"
+                      name="description"
+                      margin="normal"
+                      fullWidth
+                      multiline
+                      rows={5}
+                    />
                   </div>
                   <Button size="small" variant="contained" color="primary">Подробнее</Button>
                 </div>
@@ -147,4 +176,4 @@ class StartToEnd extends React.Component {
   }
 }
 
-export default withStyles(styles)(StartToEnd)
+export default withStyles(styles)(Contacts)

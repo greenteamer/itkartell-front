@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Menu from '../Menu';
+import Footer from '../Footer';
 
 
 const layoutStyle = {
@@ -12,6 +13,7 @@ const Layout = ({ children }) => (
     <div className="layoutChildrenWrapper">
       {children}
     </div>
+    <Footer />
     <style jsx global>{`
       @font-face {
         font-family: "Akrobat-Black";

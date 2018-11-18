@@ -5,11 +5,18 @@ import Grid from '@material-ui/core/Grid'
 import Container from '../Container'
 
 class Menu extends React.Component { 
-  state = {
-    isScrolled: false,
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isScrolled: false,
+    }
   }
 
   componentDidMount() {
+    if (window && window.screenY !== 0) {
+      this.setScrolled(window.scrollY !== 0);
+    }
     window.addEventListener('scroll', this.handleScroll);
   }
 
@@ -18,7 +25,11 @@ class Menu extends React.Component {
   }
 
   handleScroll = () => {
-    this.setState({ isScrolled: window.scrollY !== 0 })
+    this.setScrolled(window.scrollY !== 0);
+  }
+
+  setScrolled = (isScrolled) => {
+    this.setState({ isScrolled })
   }
 
   render() {
