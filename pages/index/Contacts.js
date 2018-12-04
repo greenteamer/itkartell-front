@@ -1,15 +1,27 @@
 import React from 'react'
 import Link from 'next/link'
 import Grid from '@material-ui/core/Grid'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import { withStyles } from '@material-ui/core/styles'
+import fetch from 'isomorphic-unfetch'
+import Strapi from 'strapi-sdk-javascript'
+
 
 import Container from '../../src/components/Container'
 import TitleBlock from '../../src/components/TitleBlock'
+
+const strapi = new Strapi('http://localhost:1337');
+
+// (
+//   async () => {
+//     const posts = await strapi.getEntries('posts')
+//     console.log(`Posts count: ${posts.length}`)
+//   }
+// )();
 
 
 const styles = {
@@ -50,9 +62,33 @@ const MyCard = withStyles(styles)(({ classes, title, text }) => (
 ))
 
 class Contacts extends React.Component { 
+  sendEmail = async () => {
+    // fetch('http://localhost:1337', {
+    //   method: 'POST',
+    //   // headers: {
+    //   //   'Content-Type': 'application/json'
+    //   // },
+    //   body: JSON.stringify({ to: "teamer777@gmail.com" })
+    // }).then( r => {
+    //   open(r.headers.get('location'));
+    //   return r.json();
+    // })
+    const posts = await strapi.getEntries('posts')
+    console.log(`Posts count: ${posts.length}`)
+    console.log('strapi: ', { strapi })
+
+    await strapi.plugins['email'].services.email.send({
+      to: 'teamer777@gmail.com',
+      from: 'teamer777@gmail.com',
+      replyTo: 'teamer777@gmail.com',
+      subject: 'Use strapi email provider successfully',
+      text: 'Hello world!',
+      html: 'Hello world!'
+    });
+    console.log('>>> send email method');
+  }
+
   render() {
-    const { classes } = this.props;
-    const bull = <span className={classes.bullet}>•</span>;
     return (
       <div className="startToEndwrapper">
         <Container>
@@ -94,7 +130,13 @@ class Contacts extends React.Component {
                       rows={5}
                     />
                   </div>
-                  <Button size="small" variant="contained" color="primary">Подробнее</Button>
+                  <Button
+                    size="small"
+                    variant="contained"
+                    color="primary"
+                    onClick={this.sendEmail}>
+                    Подробнее
+                  </Button>
                 </div>
               </Grid>
               <Grid item xs={7}>

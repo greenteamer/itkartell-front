@@ -61,7 +61,6 @@ export default function RecentWorks () {
     <Query query={allProjectsQuery}>
       {(props) => {
         const  { loading, error, data } = props;
-        console.log('>>> all projects: ', { data });
         const settings = {
           dots: false,
           infinite: true,
