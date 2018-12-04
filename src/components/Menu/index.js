@@ -74,7 +74,7 @@ class Menu extends React.Component {
             position: fixed;
             top: 0;
             width: 100%;
-            background: ${isScrolled || dark ? 'black' : 'transparent'};
+            background: ${isScrolled || dark ? '#575fd4' : 'transparent'};
             z-index: 100;
           }
           ul {
