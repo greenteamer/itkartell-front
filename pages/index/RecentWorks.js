@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 
 import Container from '../../src/components/Container'
 import TitleBlock from '../../src/components/TitleBlock'
+import { API_PORT, API_URL } from '../../config'
 
 
 const indexedMap = addIndex(map);
@@ -87,7 +88,7 @@ export default function RecentWorks () {
                             style={{
                               width: '100%',
                               height: '100%',
-                              backgroundImage: `url(http://localhost:1337${item.cover.url})`,
+                              backgroundImage: `url(${API_URL}:${API_PORT}${item.cover.url})`,
                               backgroundSize: 'cover',
                               backgroundPosition: 'center',
                             }}
